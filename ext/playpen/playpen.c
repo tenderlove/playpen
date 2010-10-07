@@ -13,12 +13,12 @@ static VALUE playpen_init(VALUE self, VALUE name, VALUE flags)
 
 void Init_playpen()
 {
-  VALUE mPlaypen = rb_define_module("Playpen");
-  rb_define_const(mPlaypen, "SANDBOX_NAMED", INT2NUM(SANDBOX_NAMED));
-  rb_define_const(mPlaypen, "NO_INTERNET", rb_str_new2(kSBXProfileNoInternet));
-  rb_define_const(mPlaypen, "NO_NETWORK", rb_str_new2(kSBXProfileNoNetwork));
-  rb_define_const(mPlaypen, "NO_WRITE", rb_str_new2(kSBXProfileNoWrite));
-  rb_define_const(mPlaypen, "TEMP_ONLY_WRITE", rb_str_new2(kSBXProfileNoWriteExceptTemporary));
-  rb_define_const(mPlaypen, "COMPUTATION_ONLY", rb_str_new2(kSBXProfilePureComputation));
-  rb_define_singleton_method(mPlaypen, "sandbox_init", playpen_init, 2);
+  VALUE cPlaypen = rb_define_class("Playpen", rb_cObject);
+  rb_define_const(cPlaypen, "SANDBOX_NAMED", INT2NUM(SANDBOX_NAMED));
+  rb_define_const(cPlaypen, "NO_INTERNET", rb_str_new2(kSBXProfileNoInternet));
+  rb_define_const(cPlaypen, "NO_NETWORK", rb_str_new2(kSBXProfileNoNetwork));
+  rb_define_const(cPlaypen, "NO_WRITE", rb_str_new2(kSBXProfileNoWrite));
+  rb_define_const(cPlaypen, "TEMP_ONLY_WRITE", rb_str_new2(kSBXProfileNoWriteExceptTemporary));
+  rb_define_const(cPlaypen, "COMPUTATION_ONLY", rb_str_new2(kSBXProfilePureComputation));
+  rb_define_singleton_method(cPlaypen, "sandbox_init", playpen_init, 2);
 }

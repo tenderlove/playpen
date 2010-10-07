@@ -29,4 +29,24 @@ class TestPlaypen < Test::Unit::TestCase
   def test_sanity
     Playpen.sandbox_init(Playpen::NO_INTERNET, Playpen::SANDBOX_NAMED)
   end
+
+  def test_chaining
+    x = Class.new(Playpen) do
+      class << self
+        attr_accessor :args
+        def sandbox_init file, flags
+          self.args << [file, flags]
+        end
+      end
+      self.args = []
+    end
+    x.no_internet.no_network.no_writes.temporary_writes.pure_computation.apply
+    assert_equal([
+      [Playpen::NO_INTERNET, Playpen::SANDBOX_NAMED],
+      [Playpen::NO_NETWORK, Playpen::SANDBOX_NAMED],
+      [Playpen::NO_WRITE, Playpen::SANDBOX_NAMED],
+      [Playpen::TEMP_ONLY_WRITE, Playpen::SANDBOX_NAMED],
+      [Playpen::COMPUTATION_ONLY, Playpen::SANDBOX_NAMED],
+    ], x.args)
+  end
 end
