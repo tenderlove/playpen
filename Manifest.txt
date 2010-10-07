@@ -3,7 +3,6 @@ CHANGELOG.rdoc
 Manifest.txt
 README.rdoc
 Rakefile
-bin/playpen
 ext/playpen/extconf.rb
 ext/playpen/playpen.c
 lib/playpen.rb
