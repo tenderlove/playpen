@@ -26,6 +26,12 @@ class Playpen
     eoruby
   end
 
+  class << self
+    alias :no_writes :no_write
+    alias :temporary_writes :temp_only_write
+    alias :pure_computation :computation_only
+  end
+
   alias :no_writes :no_write
   alias :temporary_writes :temp_only_write
   alias :pure_computation :computation_only

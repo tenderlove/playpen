@@ -31,15 +31,7 @@ class TestPlaypen < Test::Unit::TestCase
   end
 
   def test_chaining
-    x = Class.new(Playpen) do
-      class << self
-        attr_accessor :args
-        def sandbox_init file, flags
-          self.args << [file, flags]
-        end
-      end
-      self.args = []
-    end
+    x = fake_pp
     x.no_internet.no_network.no_writes.temporary_writes.pure_computation.apply
     assert_equal([
       [Playpen::NO_INTERNET, Playpen::SANDBOX_NAMED],
@@ -48,5 +40,31 @@ class TestPlaypen < Test::Unit::TestCase
       [Playpen::TEMP_ONLY_WRITE, Playpen::SANDBOX_NAMED],
       [Playpen::COMPUTATION_ONLY, Playpen::SANDBOX_NAMED],
     ], x.args)
+  end
+
+  def test_class_methods
+    {
+      'no_internet'      => Playpen::NO_INTERNET,
+      'no_network'       => Playpen::NO_NETWORK,
+      'no_write'         => Playpen::NO_WRITE,
+      'temporary_writes' => Playpen::TEMP_ONLY_WRITE,
+      'pure_computation' => Playpen::COMPUTATION_ONLY,
+    }.each do |method, const|
+      x = fake_pp
+      x.send(method).apply
+      assert_equal([[const, Playpen::SANDBOX_NAMED]], x.args)
+    end
+  end
+
+  def fake_pp
+    Class.new(Playpen) do
+      class << self
+        attr_accessor :args
+        def sandbox_init file, flags
+          self.args << [file, flags]
+        end
+      end
+      self.args = []
+    end
   end
 end
