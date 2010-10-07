@@ -1,32 +1,34 @@
 = playpen
 
-* FIX (url)
+* http://github.com/tenderlove/playpen
 
 == DESCRIPTION:
 
-FIX (describe your package)
+Playpen wraps OS X sandbox api with a loving embrace.  Playpen provides the
+same API that the Sandbox class in MacRuby provides.
 
 == FEATURES/PROBLEMS:
 
-* FIX (list of features or problems)
+* AWESOME
+* MANY
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+  Playpen.no_internet.apply!
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+* OS X 10.5 or greater
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+* gem install playpen
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2010 Aaron Patterson
+Copyright (c) 2010 Aaron Patterson, Evan Phoenix
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

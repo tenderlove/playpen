@@ -32,7 +32,7 @@ class TestPlaypen < Test::Unit::TestCase
 
   def test_chaining
     x = fake_pp
-    x.no_internet.no_network.no_writes.temporary_writes.pure_computation.apply
+    x.no_internet.no_network.no_writes.temporary_writes.pure_computation.apply!
     assert_equal([
       [Playpen::NO_INTERNET, Playpen::SANDBOX_NAMED],
       [Playpen::NO_NETWORK, Playpen::SANDBOX_NAMED],
@@ -51,7 +51,7 @@ class TestPlaypen < Test::Unit::TestCase
       'pure_computation' => Playpen::COMPUTATION_ONLY,
     }.each do |method, const|
       x = fake_pp
-      x.send(method).apply
+      x.send(method).apply!
       assert_equal([[const, Playpen::SANDBOX_NAMED]], x.args)
     end
   end
