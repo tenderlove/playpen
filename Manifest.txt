@@ -1,7 +1,10 @@
-History.txt
+.autotest
+CHANGELOG.rdoc
 Manifest.txt
-README.txt
+README.rdoc
 Rakefile
 bin/playpen
+ext/playpen/extconf.rb
+ext/playpen/playpen.c
 lib/playpen.rb
 test/test_playpen.rb
