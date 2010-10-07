@@ -16,5 +16,9 @@ void Init_playpen()
   VALUE mPlaypen = rb_define_module("Playpen");
   rb_define_const(mPlaypen, "SANDBOX_NAMED", INT2NUM(SANDBOX_NAMED));
   rb_define_const(mPlaypen, "NO_INTERNET", rb_str_new2(kSBXProfileNoInternet));
+  rb_define_const(mPlaypen, "NO_NETWORK", rb_str_new2(kSBXProfileNoNetwork));
+  rb_define_const(mPlaypen, "NO_WRITE", rb_str_new2(kSBXProfileNoWrite));
+  rb_define_const(mPlaypen, "TEMP_ONLY_WRITE", rb_str_new2(kSBXProfileNoWriteExceptTemporary));
+  rb_define_const(mPlaypen, "COMPUTATION_ONLY", rb_str_new2(kSBXProfilePureComputation));
   rb_define_singleton_method(mPlaypen, "sandbox_init", playpen_init, 2);
 }
