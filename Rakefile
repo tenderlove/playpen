@@ -5,7 +5,7 @@ require 'hoe'
 gem 'rake-compiler', '>= 0.4.1'
 require "rake/extensiontask"
 
-Hoe.spec 'playpen' do
+Hoe.spec 'playpen' do |s|
   developer('Aaron Patterson', 'aaron@tenderlovemaking.com')
   developer('Evan Phoenix', 'evan@fallingsnow.net')
   self.readme_file   = 'README.rdoc'
@@ -13,8 +13,8 @@ Hoe.spec 'playpen' do
   self.extra_rdoc_files  = FileList['*.rdoc']
   self.spec_extras = { :extensions => ["ext/playpen/extconf.rb"] }
 
-  Rake::ExtensionTask.new "playpen", spec do |ext|
-    ext.lib_dir = File.join(*['lib', 'playpen', ENV['FAT_DIR']].compact)
+  Rake::ExtensionTask.new s.name, spec do |ext|
+    ext.lib_dir = File.join(*['lib', s.name, ENV['FAT_DIR']].compact)
   end
 end
 
