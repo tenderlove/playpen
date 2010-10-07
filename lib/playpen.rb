@@ -9,7 +9,7 @@ class Playpen
 
   def apply!
     @commands.each do |command|
-      self.class.sandbox_init(command, Playpen::SANDBOX_NAMED)
+      self.class.sandbox_init command, Playpen::SANDBOX_NAMED
     end
   end
 
