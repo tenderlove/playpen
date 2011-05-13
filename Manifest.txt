@@ -6,5 +6,9 @@ Rakefile
 ext/playpen/extconf.rb
 ext/playpen/playpen.c
 lib/playpen.rb
-lib/playpen/nonet.rb
+lib/playpen/computation_only.rb
+lib/playpen/no_internet.rb
+lib/playpen/no_network.rb
+lib/playpen/no_write.rb
+lib/playpen/temp_only_write.rb
 test/test_playpen.rb
