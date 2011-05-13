@@ -14,7 +14,14 @@ same API that the Sandbox class in MacRuby provides.
 
 == SYNOPSIS:
 
+From code:
+
+  require 'playpen'
   Playpen.no_internet.apply!
+
+From the command line (with bundler):
+
+  $ ruby -rubygems -rplaypen/computation_only -S bundle
 
 == REQUIREMENTS:
 
@@ -28,7 +35,10 @@ same API that the Sandbox class in MacRuby provides.
 
 (The MIT License)
 
-Copyright (c) 2010 Aaron Patterson, Evan Phoenix
+Copyright (c) 2010-2011
+
+  * Aaron Patterson
+  * Evan Phoenix
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

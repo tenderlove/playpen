@@ -6,4 +6,5 @@ Rakefile
 ext/playpen/extconf.rb
 ext/playpen/playpen.c
 lib/playpen.rb
+lib/playpen/nonet.rb
 test/test_playpen.rb

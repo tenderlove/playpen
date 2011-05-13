@@ -1,3 +1,12 @@
+=== 1.1.0 / 2011-05-12
+
+* 1 enhancement
+
+  * Added files to be required from the command line. For example, to raise
+    an exception if bundler tries to access the network:
+
+      $ ruby -rubygems -rplaypen/no_network -S bundle
+
 === 1.0.0 / 2010-10-07
 
 * 1 major enhancement
